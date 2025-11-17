@@ -54,7 +54,7 @@ viewModel () =
       [ H.p_ [ ] [ "HTML" ]
       , H.code_
         [ class_ "language-html"
-        , onCreatedWith_ Highlight
+        , onCreatedWith Highlight
         ]
         [ """<head><title class=\"foo\">hi</title></head>
           """
@@ -62,7 +62,7 @@ viewModel () =
       , H.p_ [] [ "SQL" ]
       , H.code_
         [ class_ "language-sql"
-        , onCreatedWith_ Highlight
+        , onCreatedWith Highlight
         ]
         [ """ SELECT * FROM person WHERE name LIKE 'J*'
           """
@@ -70,14 +70,14 @@ viewModel () =
       , H.p_ [] [ "JS" ]
       , H.code_
         [ class_ "language-javascript"
-        , onCreatedWith_ Highlight
+        , onCreatedWith Highlight
         ]
         [ """ (function () { console.log ('hey'); })() """
         ]
       , H.p_ [] [ "Haskell" ]
       , H.code_
         [ class_ "language-haskell"
-        , onCreatedWith_ Highlight
+        , onCreatedWith Highlight
         ]
         [ """
           module Main where
