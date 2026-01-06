@@ -7,7 +7,6 @@
 module Main where
 -----------------------------------------------------------------------------
 import           Control.Monad
-import           Language.Javascript.JSaddle
 -----------------------------------------------------------------------------
 import           Miso
 import qualified Miso.CSS as CSS
