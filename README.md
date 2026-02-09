@@ -20,7 +20,7 @@ foreign export javascript "hs_start" main :: IO ()
 #endif
 -----------------------------------------------------------------------------
 main :: IO ()
-main = run (startApp app)
+main = startApp defaultEvents app
 -----------------------------------------------------------------------------
 data Action = Highlight DOMRef
 type Model  = ()
