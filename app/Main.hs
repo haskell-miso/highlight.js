@@ -1,6 +1,7 @@
 -----------------------------------------------------------------------------
 {-# LANGUAGE CPP               #-}
 {-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE QuasiQuotes       #-}
 {-# LANGUAGE MultilineStrings  #-}
 {-# LANGUAGE OverloadedStrings #-}
 -----------------------------------------------------------------------------
@@ -10,6 +11,7 @@ import           Control.Monad
 -----------------------------------------------------------------------------
 import           Miso
 import qualified Miso.CSS as CSS
+import           Miso.FFI.QQ (js)
 import           Miso.Html as H
 import           Miso.Html.Property as P
 -----------------------------------------------------------------------------
@@ -35,9 +37,7 @@ app = (component () update_ viewModel)
 #endif
 -----------------------------------------------------------------------------
 update_ :: Action -> Effect parent model action
-update_ (Highlight domRef) = io_ $ void $ do
-  hljs <- global ! ("hljs" :: MisoString)
-  hljs # ("highlightElement" :: MisoString) $ [domRef]
+update_ (Highlight domRef) = io_ [js| hljs.highlightElement (${domRef}); |]
 -----------------------------------------------------------------------------
 viewModel :: Model -> View Model Action
 viewModel () =
