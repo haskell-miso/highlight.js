@@ -39,8 +39,8 @@ app = (component () update_ viewModel)
 update_ :: Action -> Effect context props model action
 update_ (Highlight domRef) = io_ [js| hljs.highlightElement (${domRef}); |]
 -----------------------------------------------------------------------------
-viewModel :: context -> props -> Model -> View context Model Action
-viewModel _ _ () =
+viewModel :: Model -> View context props Model Action
+viewModel () =
   H.div_
   [ CSS.style_ [ "font-family" =: "monospace" ]
   ]
